@@ -4,7 +4,7 @@
 
 #### 浜 <sup style="font-weight:normal;">はま</sup> 崎 <sup style="font-weight:normal;">ざき</sup> あゆみ
 
-滨崎步
+滨崎 步
 
 <br>
 

@@ -4,7 +4,7 @@
 
 #### 平 <sup style="font-weight:normal;">ひら</sup> 原 <sup style="font-weight:normal;">はら</sup> 綾 <sup style="font-weight:normal;">あや</sup> 香 <sup style="font-weight:normal;">か</sup>
 
-平原绫香
+平原 绫香
 
 <br>
 

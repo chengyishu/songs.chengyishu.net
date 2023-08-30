@@ -1,9 +1,9 @@
 <!doctype html>
-<html>
+<html style='font-size:18px !important'>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
 
-<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+<link href='https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
 .mac-os-11 { --title-bar-height:28px; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
@@ -201,68 +201,406 @@ mark .md-meta { color: rgb(0, 0, 0); }
 .md-inline-math-container mjx-container { zoom: 0.95; }
 
 
+/*快速自定义配置*/
 :root {
-    --side-bar-bg-color: #fafafa;
-    --control-text-color: #777;
+    --monospace: "JetBrains Mono", "Fira Code", "Cascadia Code", Menlo, "Ubuntu Mono", Consolas, HYZhengYuan; /*代码字体*/
+    --text-font: var(--monospace); /*正文字体*/
+    --title-font: var(--monospace); /*标题字体*/
+    --latex-font: var(--monospace); /*LaTeX字体(不含英语)*/
+    --text-line-height: 1.6; /*正文行间距*/
+    --code-line-height: 1.6; /*代码块行间距*/
+    --p-spacing: 0.8rem; /*段间距*/
+    --text-size: 12px;
+}/*
+ * Copyright (C) 2018 Drake, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ * GitHub https://github.com/liangjingkanji/DrakeTyporaTheme
+ */
+@import url();
+@include-when-export url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+    --text-color: #202124;
+    --blur-text-color: #c8c8c8;
+    --bg-color: #ffffff;
+    --control-text-color: var(--text-color);
+    --meta-content-color: var(--text-color);
+    --active-file-border-color: var(--drake-accent);
+    --rawblock-edit-panel-bd: var(--code-block-bg-color);
+    --item-hover-bg-color: #E5E5E596;
+    --active-file-bg-color: var(--item-hover-bg-color);
+
+    --blur-text-color: rgba(32, 33, 36, 0.5);
+    --drake-accent: #5784ec;
+    --drake-highlight: #3a474e;
+    --a-color: #1769e0;
+    --variable-color: #d01884;
+    --outline-active-color: var(--a-color);
+    --code-block-bg-color: #f8f9fa;
+    --code-block-color: #3a474e;
+    --title-color: #202124;
+    --blockquote-border-color: #275796;
+    --blockquote-color: #275796;
+    --blockquote-bg-color: #e5f4fd;
+    --strong-color: var(--title-color);
+    --h2-underline-color: var(--title-color);
+    --horizontal-divider-color: var(--title-color);
+    --height-light-color: var(--text-color);
+    --height-light-border-color: var(--text-color);
+    --yaml-color: #777777;
+    --yaml-bg-color: #f7f7f7;
+    --footnotes-bg-color: #3c3d3e;
+    --footnotes-highlight: #FFD760;
+    --table-border-color: #dadce0;
+    --table-header-bg-color: #f1f3f4;
+    --table-bg-color: var(--bg-color);
+    --table-n2-bg-color: var(--bg-color);
+    --input-bg-color: var(--item-hover-bg-color);
+    --btn-hover-bg-color: var(--item-hover-bg-color);
+    --checkbox-checked: url("data:image/svg+xml,%3Csvg class='icon' viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cpath d='M425.984 726.016l384-384-59.99-61.995-324.01 324.011-152.021-152.021L213.973 512zm384-598.016q36.01 0 61.013 25.984T896 213.974v596.01q0 34.005-25.003 59.99t-61.013 25.983h-596.01q-36.011 0-61.014-25.984t-25.003-59.989v-596.01q0-34.006 25.003-59.99T213.973 128h596.011z' fill='%2365b73b'/%3E%3C/svg%3E");
+    --checkbox-unchecked: url("data:image/svg+xml,%3Csvg class='icon' viewBox='0 0 1024 1024' xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cpath d='M810.667 213.333v597.334H213.333V213.333h597.334m0-85.333H213.333C166.4 128 128 166.4 128 213.333v597.334C128 857.6 166.4 896 213.333 896h597.334C857.6 896 896 857.6 896 810.667V213.333C896 166.4 857.6 128 810.667 128z' fill='%23333333'/%3E%3C/svg%3E");
 }
 
-@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
-
-/* open-sans-regular - latin-ext_latin */
-  /* open-sans-italic - latin-ext_latin */
-    /* open-sans-700 - latin-ext_latin */
-    /* open-sans-700italic - latin-ext_latin */
-  html {
-    font-size: 16px;
-    -webkit-font-smoothing: antialiased;
+html {
+    font-size: var(--text-size);
 }
 
 body {
-    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
-    color: rgb(51, 51, 51);
-    line-height: 1.6;
+    font-family: var(--text-font) !important;
+    color: var(--text-color);
+    -webkit-font-feature-settings: "liga" on, "calt" on;
+    -webkit-font-smoothing: subpixel-antialiased;
+    text-rendering: optimizeLegibility;
+    letter-spacing: 0;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+p {
+    line-height: var(--text-line-height);
+}
+
+/*code block*/
+.md-fences {
+    font-size: 1rem;
+    padding: 12px !important;
+    border-radius: 8px;
+    word-wrap: normal;
+    background-color: var(--code-block-bg-color);
+    color: var(--code-block-color);
+    border: .1em solid #e8eaed;
+    line-height: var(--code-line-height);
+}
+
+/*inline latex*/
+.MathJax {
+    font-size: 120% !important;
+}
+.MathJax text, .MathJax use {
+    font-family: var(--latex-font);
+}
+/*math-block latex*/
+.md-math-block .MathJax {
+    font-size: 130% !important;
+}
+
+/*mermaid*/
+[mermaid-type="journey"] line {
+    stroke: #7a7a7a !important;
+}
+[mermaid-type="journey"] .label {
+    color: #333 !important;
+}
+[id^=mermaidChart] .relationshipLabelBox {
+    fill: var(--bg-color) !important;
+    opacity: 1 !important;
+    background-color: var(--bg-color) !important;
+}
+[id^=mermaidChart] .legend {
+    fill: var(--text-color) !important;
+}
+[id^=mermaidChart] g.label {
+    font-size: 1rem !important;
+}
+[id^=mermaidChart] line.divider {
+    stroke: var(--table-border-color) !important;
+}
+[id^=mermaidChart] span.nodeLabel {
+    color: var(--code-block-color) !important;
+    line-height: 1.8rem;
+}
+tspan {
+    color: var(--text-color)
+}
+[id^=mermaidChart] .entityLabel {
+    fill: var(--code-block-color) !important;
+}
+[id^=mermaidChart] {
+    fill: var(--text-color) !important;
+}
+[id^=mermaidChart] rect.rect {
+    fill: rgba(175, 255, 212, 0.3) !important;
+}
+.md-diagram-panel-preview text.actor > tspan { /*方块文字*/
+    fill: var(--code-block-color) !important;
+    stroke: none !important;
+    font-family: var(--text-font) !important;
+    font-size: 1rem !important;
+}
+.md-diagram-panel-preview .actor, .md-diagram-panel-preview .entityBox { /*方块*/
+    stroke: var(--table-border-color) !important;
+    fill: var(--code-block-bg-color) !important;
+}
+.md-diagram-panel-preview .actor-line { /*竖线*/
+    stroke: var(--text-color) !important;
+    stroke-width: 1px;
+}
+.md-diagram-panel-preview .messageLine0 { /*横线*/
+    stroke-width: 1.5;
+    stroke-dasharray: none;
+    stroke: var(--text-color) !important;
+}
+.md-diagram-panel-preview .messageLine1 { /*虚线*/
+    stroke-width: 1.5 !important;
+    stroke-dasharray: 2, 2 !important;
+    stroke: var(--text-color) !important;
+}
+.md-diagram-panel-preview .messageText { /*描述文字*/
+    fill: var(--text-color) !important;
+    font-family: var(--text-font) !important;
+    font-size: 1rem !important;
+}
+.md-diagram-panel-preview .activation0 { /*长方形*/
+    fill: #e6e6e6 !important;
+    stroke: var(--text-color) !important;
+}
+.md-diagram-panel-preview .labelText, .md-diagram-panel-preview .labelText > tspan { /*循环标记*/
+    fill: var(--code-block-color) !important;
+    font-family: var(--text-font) !important;
+    font-size: 1rem !important;
+    dominant-baseline: unset;
+    alignment-baseline: unset;
+}
+.md-diagram-panel-preview .labelBox { /*循环标记背景*/
+    stroke: var(--table-border-color) !important;
+    fill: var(--code-block-bg-color) !important;
+}
+.md-diagram-panel-preview .loopLine { /*循环标记虚线*/
+    stroke: var(--text-color) !important;
+}
+.md-diagram-panel-preview .loopText, .md-diagram-panel-preview .loopText > tspan { /*循环名称*/
+    fill: var(--text-color) !important;
+    font-size: 1rem !important;
+}
+.md-diagram-panel-preview .sequenceNumber { /*序号*/
+    fill: var(--bg-color) !important;
+}
+pre.md-fences-advanced.md-focus .md-fences-adv-panel {
+    border: none;
+}
+.md-diagram-panel-preview .edgePath .path { /*箭头*/
+    stroke: var(--text-color) !important;
+}
+.md-diagram-panel-preview .edgeLabel rect { /*条件文字背景*/
+    fill: var(--bg-color) !important;
+}
+.md-diagram-panel-preview .edgeLabel span { /*条件文字*/
+    color: var(--text-color);
+}
+.md-diagram-panel-preview .node rect,
+.md-diagram-panel-preview .node circle,
+.md-diagram-panel-preview .node ellipse,
+.md-diagram-panel-preview .node polygon,
+.md-diagram-panel-preview .node path { /*形状*/
+    stroke: var(--table-border-color) !important;
+    fill: var(--code-block-bg-color) !important;
+}
+#write .md-diagram-panel .md-diagram-panel-preview div { /*形状内文字*/
+    color: var(--code-block-color);
+    font-family: var(--text-font) !important;
+    font-size: 1rem !important;
+}
+
+/*code snippet*/
+#write code, tt {
+    margin: 0 4px;
+    color: var(--drake-highlight);
+    border: .1rem solid #e8eaed;
+    background: #f8f9fa;
+    border-radius: 4px;
+    padding: .1rem .4rem;
+}
+
+/*variable*/
+var {
+    color: var(--variable-color);
+    font-weight: bold;
+}
+
+/*raw block*/
+.md-rawblock-control:not(.md-rawblock-tooltip) {
+    border-radius: 2px 0 2px 2px;
+    padding: 0.2rem !important;
+}
+.md-rawblock:hover > .md-rawblock-container {
+    background: none;
+}
+.md-rawblock-input {
+    font-size: 1rem;
+}
+.md-rawblock-tooltip-btn:hover {
+    background: none;
+}
+.md-rawblock:hover > .md-rawblock-tooltip {
+    border-radius: 2px 2px 0 0;
+    margin-bottom: 2px !important;
+}
+.md-rawblock-tooltip.md-rawblock-control {
+    border-radius: 2px 2px 0 0;
+    color: var(--code-block-color);
+}
+.md-rawblock-tooltip-name {
+    color: var(--code-block-color);
+    opacity: 1;
+}
+
+/*quote block*/
+blockquote {
+    color: var(--blockquote-color) !important;
+    border-radius: 4px;
+    padding: 10px 16px;
+    background-color: var(--blockquote-bg-color);
+    position: relative;
+    border-left: none;
+}
+
+#write strong {
+    color: var(--strong-color);
+    font-weight: bold;
+}
+#write blockquote strong {
+    color: var(--blockquote-color);
+}
+
+/*link*/
+.on-focus-mode #write a .md-plain:hover, .on-focus-mode .md-htmlblock-container a:hover {
+    border-bottom: .1rem solid var(--blur-text-color);
+}
+#write a .md-plain:hover, .md-htmlblock-container a:hover,
+.on-focus-mode #write .md-focus a .md-plain:hover, .on-focus-mode .md-focus .md-htmlblock-container a:hover {
+    border-bottom: .1rem solid var(--a-color);
+}
+#write a {
+    color: var(--a-color);
+    text-decoration: none;
+}
+#write h2 a .md-plain {
+    border-bottom: .2rem solid var(--a-color);
+}
+[md-inline=link] a {
+    margin: 0 .2rem;
+}
+#write a code, a:any-link {
+    color: var(--a-color);
+}
+#write a code:hover {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-thickness: 0.1em;
+}
+
+img {
+    border-left: none;
+    border-right: none;
+    vertical-align: baseline;
+    border-radius: 2px;
 }
 
 #write {
-    max-width: 860px;
-  	margin: 0 auto;
-  	padding: 30px;
-    padding-bottom: 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 30px 100px;
 }
-
-@media only screen and (min-width: 1400px) {
-	#write {
-		max-width: 1024px;
-	}
-}
-
-@media only screen and (min-width: 1800px) {
-	#write {
-		max-width: 1200px;
-	}
+#typora-source .CodeMirror-lines {
+    max-width: 1200px;
 }
 
 #write > ul:first-child,
-#write > ol:first-child{
+#write > ol:first-child {
     margin-top: 30px;
 }
 
-a {
-    color: #4183C4;
+body > *:first-child {
+    margin-top: 0 !important;
 }
+
+body > *:last-child {
+    margin-bottom: 0 !important;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
+    font-family: var(--title-font);
     position: relative;
-    margin-top: 1rem;
+    margin-top: 2rem;
     margin-bottom: 1rem;
     font-weight: bold;
     line-height: 1.4;
     cursor: text;
+    color: var(--title-color);
 }
+
+h3.md-focus:before, h4.md-focus:before, h5.md-focus:before, h6.md-focus:before {
+    visibility: hidden;
+}
+
+h1 {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.on-focus-mode h2.md-end-block.md-heading:not(.md-focus):not(.md-focus-container):after {
+    background-color: var(--blur-text-color) !important;
+}
+
+h3 {
+    font-size: 1.4rem;
+}
+
+h4 {
+    font-size: 1.2rem;
+}
+
+h5 {
+    font-size: 1rem;
+}
+
+h6 {
+    font-size: 1rem;
+}
+
 h1:hover a.anchor,
 h2:hover a.anchor,
 h3:hover a.anchor,
@@ -271,271 +609,361 @@ h5:hover a.anchor,
 h6:hover a.anchor {
     text-decoration: none;
 }
+
 h1 tt,
 h1 code {
-    font-size: inherit;
+    font-size: inherit !important;
 }
+
 h2 tt,
 h2 code {
-    font-size: inherit;
+    font-size: inherit !important;
 }
+
 h3 tt,
 h3 code {
-    font-size: inherit;
+    font-size: inherit !important;
 }
+
 h4 tt,
 h4 code {
-    font-size: inherit;
+    font-size: inherit !important;
 }
+
 h5 tt,
 h5 code {
-    font-size: inherit;
+    font-size: inherit !important;
 }
+
 h6 tt,
 h6 code {
-    font-size: inherit;
-}
-h1 {
-    font-size: 2.25em;
-    line-height: 1.2;
-    border-bottom: 1px solid #eee;
-}
-h2 {
-    font-size: 1.75em;
-    line-height: 1.225;
-    border-bottom: 1px solid #eee;
+    font-size: inherit !important;
 }
 
-/*@media print {
-    .typora-export h1,
-    .typora-export h2 {
-        border-bottom: none;
-        padding-bottom: initial;
-    }
+p, blockquote, ul, ol, dl, table {
+    margin: var(--p-spacing) 0;
+}
 
-    .typora-export h1::after,
-    .typora-export h2::after {
-        content: "";
-        display: block;
-        height: 100px;
-        margin-top: -96px;
-        border-top: 1px solid #eee;
-    }
-}*/
-
-h3 {
-    font-size: 1.5em;
-    line-height: 1.43;
-}
-h4 {
-    font-size: 1.25em;
-}
-h5 {
-    font-size: 1em;
-}
-h6 {
-   font-size: 1em;
-    color: #777;
-}
-p,
-blockquote,
-ul,
-ol,
-dl,
-table{
-    margin: 0.8em 0;
-}
-li>ol,
-li>ul {
+li > ol,
+li > ul {
     margin: 0 0;
 }
+li {
+    margin: 0.5em 0;
+}
+
 hr {
     height: 2px;
     padding: 0;
     margin: 16px 0;
-    background-color: #e7e7e7;
+    background-color: var(--horizontal-divider-color);
     border: 0 none;
     overflow: hidden;
     box-sizing: content-box;
 }
 
+body > h2:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+body > h1:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+body > h3:first-child,
+body > h4:first-child,
+body > h5:first-child,
+body > h6:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+a:first-child h1,
+a:first-child h2,
+a:first-child h3,
+a:first-child h4,
+a:first-child h5,
+a:first-child h6 {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+h1 p,
+h2 p,
+h3 p,
+h4 p,
+h5 p,
+h6 p {
+    margin-top: 0;
+}
+
 li p.first {
     display: inline-block;
 }
-ul,
-ol {
-    padding-left: 30px;
+
+ul, ol {
+    padding-inline-start: 2em;
 }
+
 ul:first-child,
 ol:first-child {
     margin-top: 0;
 }
+
 ul:last-child,
 ol:last-child {
     margin-bottom: 0;
 }
-blockquote {
-    border-left: 4px solid #dfe2e5;
-    padding: 0 15px;
-    color: #777777;
+
+.ty-table-edit {
+    margin-top: -1rem !important;
 }
-blockquote blockquote {
-    padding-right: 0;
-}
-table {
-    padding: 0;
+#write table {
+    margin-top: 1rem;
     word-break: initial;
+    background-color: var(--table-bg-color);
 }
 table tr {
-    border: 1px solid #dfe2e5;
+    border-top: .1em solid var(--table-border-color);
     margin: 0;
     padding: 0;
 }
-table tr:nth-child(2n),
-thead {
-    background-color: #f8f8f8;
-}
 table th {
     font-weight: bold;
-    border: 1px solid #dfe2e5;
+    border: .1em solid var(--table-border-color);
     border-bottom: 0;
     margin: 0;
     padding: 6px 13px;
 }
 table td {
-    border: 1px solid #dfe2e5;
+    border: .1em solid var(--table-border-color);
     margin: 0;
     padding: 6px 13px;
 }
-table th:first-child,
-table td:first-child {
+table thead {
+    background-color: var(--table-header-bg-color);
+}
+table tr:nth-child(2n) {
+    background-color: var(--table-n2-bg-color);
+}
+table tr th:first-child,
+table tr td:first-child {
     margin-top: 0;
 }
-table th:last-child,
-table td:last-child {
+table tr th:last-child,
+table tr td:last-child {
     margin-bottom: 0;
 }
 
-.CodeMirror-lines {
-    padding-left: 4px;
+#write em {
+    padding: 0 5px 0 2px;
 }
 
-.code-tooltip {
-    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
-    border-top: 1px solid #eef2f2;
+#write table thead th {
+    background-color: var(--table-header-bg-color);
 }
 
-.md-fences,
-code,
-tt {
-    border: 1px solid #e7eaed;
-    background-color: #f8f8f8;
-    border-radius: 3px;
-    padding: 0;
-    padding: 2px 4px 0px 4px;
-    font-size: 0.9em;
+/* height light */
+#write mark {
+    border: .1em solid var(--height-light-border-color);
+    color: var(--height-light-color);
+    background-color: transparent;
+    padding: .1rem .5rem;
+    border-radius: 2rem;
+    margin: 0 .2rem;
+    font-size: .95rem;
 }
 
-code {
-    background-color: #f3f4f4;
-    padding: 0 2px 0 2px;
+/*shortcut*/
+kbd {
+    border: .1em solid #5b5b5e;
+    background: transparent;
+    color: var(--text-color);
+    margin: 0 .4rem;
+    font-family: var(--text-font) !important;
+    font-size: .95rem;
+    padding: .3em .4em;
+    border-radius: .4em;
+    box-shadow: .1em .1em .2em rgba(0, 0, 0, 0.3);
 }
 
-.md-fences {
-    margin-bottom: 15px;
-    margin-top: 15px;
-    padding-top: 8px;
-    padding-bottom: 6px;
+#write del {
+    padding: 1px 2px;
 }
-
 
 .md-task-list-item > input {
-  margin-left: -1.3em;
+    margin-left: -1.3em;
 }
 
 @media print {
     html {
-        font-size: 13px;
+        font-size: 12px;
     }
+
     table,
     pre {
         page-break-inside: avoid;
     }
+
     pre {
         word-wrap: break-word;
     }
 }
 
-.md-fences {
-	background-color: #f8f8f8;
-}
+/*YAML*/
 #write pre.md-meta-block {
-	padding: 1rem;
-    font-size: 85%;
+    padding: 1rem;
+    font-size: 1rem;
     line-height: 1.45;
-    background-color: #f7f7f7;
+    background-color: var(--yaml-bg-color);
     border: 0;
-    border-radius: 3px;
-    color: #777777;
+    border-radius: 2px;
+    color: var(--yaml-color);
     margin-top: 0 !important;
 }
 
-.mathjax-block>.code-tooltip {
-	bottom: .375rem;
+.mathjax-block > .code-tooltip {
+    bottom: .375rem;
 }
 
-.md-mathjax-midline {
-    background: #fafafa;
+#write > h3.md-focus:before {
+    left: -1.5625rem;
+    top: .375rem;
 }
 
-#write>h3.md-focus:before{
-	left: -1.5625rem;
-	top: .375rem;
+#write > h4.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
 }
-#write>h4.md-focus:before{
-	left: -1.5625rem;
-	top: .285714286rem;
+
+#write > h5.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
 }
-#write>h5.md-focus:before{
-	left: -1.5625rem;
-	top: .285714286rem;
+
+#write > h6.md-focus:before {
+    left: -1.5625rem;
+    top: .285714286rem;
 }
-#write>h6.md-focus:before{
-	left: -1.5625rem;
-	top: .285714286rem;
-}
-.md-image>.md-meta {
-    /*border: 1px solid #ddd;*/
-    border-radius: 3px;
-    padding: 2px 0px 0px 4px;
-    font-size: 0.9em;
+
+.md-image > .md-meta {
+    border-radius: 2px;
+    font-family: initial;
+    padding: 2px 0 0 4px;
     color: inherit;
 }
 
 .md-tag {
-    color: #a7a7a7;
-    opacity: 1;
+    color: inherit;
 }
 
-.md-toc { 
-    margin-top:20px;
-    padding-bottom:20px;
+.md-toc {
+    margin-top: 20px;
+    padding-bottom: 20px;
 }
 
-.sidebar-tabs {
-    border-bottom: none;
+.typora-quick-open-item {
+    font-size: 1rem !important;
+    height: 50px;
+    padding-left: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
 }
 
 #typora-quick-open {
-    border: 1px solid #ddd;
-    background-color: #f8f8f8;
+    box-shadow: 0 0 8px #00000045;
+    padding: 0;
 }
 
-#typora-quick-open-item {
-    background-color: #FAFAFA;
-    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
-    border-style: solid;
-    border-width: 1px;
+.ty-quick-open-category.ty-has-prev .ty-quick-open-category-title {
+    border-top: none;
+}
+
+#typora-quick-open-input {
+    margin: 8px;
+    box-shadow: none;
+    border-radius: 2px;
+}
+
+#typora-quick-open-input input {
+    font-size: 1rem;
+    box-shadow: none;
+    padding-top: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    line-height: 32px;
+    max-height: 32px;
+    border: none;
+}
+
+.modal-dialog#typora-quick-open {
+    border-radius: 8px;
+}
+
+.ty-quick-open-category-title {
+    padding-left: 8px;
+    color: #BEBEBE;
+    font-size: 0.8rem;
+    margin-bottom: 4px;
+}
+
+.typora-quick-open-item-path {
+    font-size: 0.8rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: 1px;
+}
+
+/*search input*/
+.form-control {
+    border: none;
+    border-radius: 2px;
+    box-shadow: none;
+}
+
+#md-searchpanel .btn {
+    border-radius: 2px;
+}
+
+#search-panel-replaceall-btn {
+    padding-right: 5px !important;
+    text-align: center !important;
+}
+
+#search-panel-replace-btn {
+    text-align: center !important;
+}
+
+#md-searchpanel input {
+    background: var(--input-bg-color);
+    border-radius: 2px;
+}
+
+.searchpanel-search-option-btn {
+    border-radius: 2px;
+    border: none;
+    background: transparent;
+    color: var(--text-color);
+}
+
+.searchpanel-search-option-btn.active {
+    background: var(--text-color);
+    color: var(--bg-color);
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+#md-notification:before {
+    top: 10px;
 }
 
 /** focus mode */
@@ -543,56 +971,392 @@ code {
     border-left-color: rgba(85, 85, 85, 0.12);
 }
 
-header, .context-menu, .megamenu-content, footer{
-    font-family: "Segoe UI", "Arial", sans-serif;
+header,
+.context-menu,
+.megamenu-content,
+footer {
+    font-family: initial;
 }
 
+/*sidebar*/
 .file-node-content:hover .file-node-icon,
-.file-node-content:hover .file-node-open-state{
+.file-node-content:hover .file-node-open-state {
     visibility: visible;
 }
-
-.mac-seamless-mode #typora-sidebar {
-    background-color: #fafafa;
-    background-color: var(--side-bar-bg-color);
+.file-node-content {
+    display: flex;
+    align-items: center;
+}
+.file-node-open-state {
+    margin-right: .5rem;
+}
+.file-node-icon {
+    margin-right: .5rem;
 }
 
-.md-lang {
-    color: #b4654d;
+#typora-sidebar {
+    font-size: inherit;
+    font-family: var(--title-font);
 }
 
-/*.html-for-mac {
-    --item-hover-bg-color: #E6F0FE;
-}*/
-
-#md-notification .btn {
-    border: 0;
+.sidebar-tabs {
+    border-bottom: none;
 }
 
-.dropdown-menu .divider {
-    border-color: #e5e5e5;
-    opacity: 0.4;
+.file-list-item-summary, .file-list-item-parent-loc, .file-list-item-time, .file-list-item-summary {
+    font-size: 0.9rem !important;
+    font-family: var(--text-font);
 }
 
-.ty-preferences .window-content {
-    background-color: #fafafa;
+.file-list-item-file-ext-part {
+    display: none;
 }
 
-.ty-preferences .nav-group-item.active {
-    color: white;
-    background: #999;
+.outline-item {
+    font-size: 1rem;
 }
 
-.menu-item-container a.menu-style-btn {
-    background-color: #f5f8fa;
-    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+/*footnotes mark*/
+#write .md-footnote {
+    background-color: inherit;
+    color: var(--drake-highlight);
+    font-size: 0.9rem;
+    border-radius: 0.9rem;
+    padding-left: 0;
 }
 
+#write .md-footnote:before {
+    content: "[";
+}
+
+#write .md-footnote:after {
+    content: "]";
+}
+
+/*footnotes content*/
+.md-hover-tip .code-tooltip-content {
+    border-radius: 2px;
+}
+
+/*footnotes title*/
+span.md-def-name {
+    padding-right: 3ch;
+    padding-left: 0;
+    position: relative;
+    font-weight: normal;
+}
+
+/*footnotes desc*/
+.footnotes {
+    font-size: 1rem;
+    font-weight: normal;
+    color: var(--text-color);
+    position: relative;
+}
+
+/*footnotes tooltip text*/
+.code-tooltip-content .md-plain {
+    font-size: 0.9rem;
+    font-family: inherit;
+}
+
+.code-tooltip-content code {
+    padding: 0 2px;
+    font-family: inherit;
+    color: var(--footnotes-highlight);
+    background-color: inherit;
+}
+
+.code-tooltip-content a {
+    color: var(--footnotes-highlight);
+}
+
+div.code-tooltip-content {
+    box-shadow: 0 0 8px #00000045;
+    background: var(--footnotes-bg-color);
+}
+
+.footnotes {
+    opacity: 1;
+}
+
+.md-def-name:after {
+    content: ". ^";
+    color: var(--text-color);
+}
+
+.md-def-footnote .md-def-name:before {
+    content: "";
+    color: var(--text-color);
+    position: absolute;
+}
+
+.md-def-name:before {
+    content: "";
+    color: var(--text-color);
+    position: absolute;
+}
+
+.md-content.md-url, .md-def-content.md-def-url.md-auto-disp {
+    text-decoration: none;
+    border-bottom: .1rem solid var(--text-color);
+}
+
+.CodeMirror-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.file-list-item-summary {
+    font-size: 1em;
+}
+
+.pin-outline #outline-content .outline-active strong, .pin-outline .outline-active {
+    font-weight: 500;
+    color: var(--outline-active-color);
+}
+
+.file-list-item.active {
+    border-left: 4px solid var(--drake-accent);
+}
+
+#md-searchpanel .btn:not(.close-btn):hover {
+    box-shadow: none;
+    background: var(--btn-hover-bg-color);
+}
+
+/*checkbox*/
+#write input[type=checkbox] {
+    opacity: 0;
+    height: 1.6rem;
+    width: 1.6rem;
+    margin-left: -2em;
+    margin-top: 0;
+    top: 0;
+}
+
+#write .ul-list li.md-task-list-item.task-list-done::before {
+    content: "";
+    background: var(--checkbox-checked) 0 0 no-repeat;
+    background-size: 100%;
+    display: inline-block;
+    position: absolute;
+    height: 1.6rem;
+    width: 1.6rem;
+    margin-left: -2em;
+}
+#write .ul-list li.md-task-list-item.task-list-not-done::before {
+    content: "";
+    background: var(--checkbox-unchecked) 0 0 no-repeat;
+    background-size: 100%;
+    display: inline-block;
+    position: absolute;
+    height: 1.6rem;
+    width: 1.6rem;
+    margin-left: -2em;
+}
+.task-list-item p {
+    line-height: 1.6rem;
+}
+
+/*insert table*/
+.btn {
+    border-radius: 2px;
+}
+
+.modal-content {
+    border-radius: 8px;
+}
+
+.btn-primary:hover, .btn-primary:active {
+    background-color: var(--btn-hover-bg-color);
+    color: var(--drake-highlight);
+}
+
+.btn-primary {
+    background-color: transparent;
+    color: var(--drake-highlight);
+}
+
+.btn-default {
+    background-color: transparent;
+}
+
+.btn:active {
+    box-shadow: none;
+    border-color: transparent;
+}
+
+.modal-footer {
+    border-top: none;
+}
+
+#table-insert-col, #table-insert-row {
+    background: var(--input-bg-color);
+    border-radius: 2px;
+}
+
+/*preference panel*/
+#megamenu-content {
+    background-image: none !important;
+    background-color: var(--bg-color);
+}
+#top-titlebar {
+    height: inherit;
+    background-color: var(--bg-color);
+}
+#megamenu-menu-sidebar {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+.long-btn {
+    width: inherit;
+    min-width: 300px;
+    border: 1px solid var(--text-color);
+    border-radius: 6px;
+}
+.megamenu-menu-panel h1 {
+    margin-bottom: 3rem;
+    text-align: left;
+}
+.megamenu-menu-panel h1, .megamenu-menu-panel h2 {
+    font-weight: normal;
+}
+#recent-file-panel-search-input {
+    height: 45px;
+    border: none;
+    border-bottom: 1px solid var(--text-color);
+    padding-left: 8px;
+}
+#recent-file-panel-search-input::placeholder {
+    color: var(--text-color);
+    opacity: .5;
+}
+.megamenu-menu-header {
+    border-bottom: none;
+}
+#recent-file-panel-action-btn {
+    background: none;
+    border: none;
+}
+#recent-file-panel-action-btn-container {
+    float: none;
+    display: inline-block;
+}
+#top-titlebar .toolbar-icon.btn.hover, #top-titlebar .toolbar-icon.btn:hover {
+    background-color: var(--btn-hover-bg-color);
+    color: var(--text-color);
+}
+.megamenu-menu-panel .btn:hover {
+    background-color: var(--btn-hover-bg-color) !important;
+    color: var(--text-color);
+}
+#recent-file-panel tbody tr:nth-child(2n-1),
+.megamenu-menu-panel table thead,
+.megamenu-menu-panel table tr {
+    background-color: transparent;
+}
+.megamenu-menu-panel table {
+    font-weight: normal;
+}
+#megamenu-back-btn {
+    color: var(--text-color);
+    border: 1px solid var(--text-color);
+}
+.megamenu-menu-header #megamenu-menu-header-title {
+    color: var(--text-color);
+}
+header, .context-menu, .megamenu-content, footer {
+    font-family: var(--text-font);
+}
+.ty-preferences select {
+    padding-left: 2px;
+}
+.preference-item-hint {
+    font-size: 14px;
+}
+a.ty-link {
+    color: var(--a-color);
+    margin: 0 .2rem;
+}
+
+/**
+    code render
+    Name: IntelliJ IDEA light theme
+    From IntelliJ IDEA by JetBrains
+ */
+.cm-s-inner.CodeMirror {
+    background: none;
+    color: var(--code-block-color);
+}
+.cm-s-inner span.cm-number {
+    color: #c5221f;
+}
+.cm-s-inner span.cm-atom {
+    color: #c5221f;
+}
+.cm-s-inner span.cm-def {
+    color: #00f;
+}
+.cm-s-inner span.cm-variable {
+    color: var(--code-block-color);
+}
+.cm-s-inner span.cm-variable-2 {
+    color: #00627A;
+}
+.cm-s-inner span.cm-variable-3, .cm-s-inner span.cm-type {
+    color: #9334e6;
+}
+.cm-s-inner span.cm-property {
+    color: var(--code-block-color);
+}
+.cm-s-inner span.cm-keyword {
+    color: #1967d2;
+}
+.cm-s-inner span.cm-operator {
+    color: var(--code-block-color);
+}
+.cm-s-inner span.cm-comment {
+    color: #b80672;
+}
+.cm-s-inner span.cm-string {
+    color: #008000;
+}
+.cm-s-inner span.cm-string-2 {
+    color: #008000;
+}
+.cm-s-inner span.cm-qualifier {
+    color: var(--code-block-color);
+}
+.cm-s-inner span.cm-error {
+    color: red;
+}
+.cm-s-inner span.cm-attribute {
+    color: #9334e6;
+}
+.cm-s-inner span.cm-tag.cm-bracket {
+    color: #1967d2;
+}
+.cm-s-inner span.cm-link {
+    color: #4A86E8;
+}
+.cm-s-inner span.cm-builtin {
+    color: var(--code-block-color);
+}
+.cm-s-inner .cm-meta {
+    color: #c5221f;
+}
+.cm-s-inner .CodeMirror-gutters {
+    border-right: 1px solid rgba(120, 120, 120, 0.3);
+    background: var(--code-block-bg-color);
+}
+.cm-s-inner .CodeMirror-linenumber {
+    color: #787878;
+}
 
 
 </style><title>平原綾香 - Jupiter</title>
 </head>
 <body class='typora-export os-windows'><div class='typora-export-content'>
-<div id='write'  class=''><h2 id='jupiter'><span>Jupiter</span></h2><p><span>木星</span></p><h4 id='平-ひら-原-はら-綾-あや-香-か'><span>平 </span><sup style="font-weight:normal;"><span>ひら</span></sup><span> 原 </span><sup style="font-weight:normal;"><span>はら</span></sup><span> 綾 </span><sup style="font-weight:normal;"><span>あや</span></sup><span> 香 </span><sup style="font-weight:normal;"><span>か</span></sup></h4><p><span>平原绫香</span></p><br><audio id="audios" controls="" height="100" width="100%" preload="auto" src="https://link.jscdn.cn/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBbGd2Z3FscVY2Zm5nMUtkc1ZyN3pLR3lJVmZiP2U9QXY2OWZM.mp3"></audio><br><br><figure><table><thead><tr><th><span>单词</span></th><th><span>发音</span></th><th><span>含义</span></th><th><span>注意</span></th></tr></thead><tbody><tr><td><span>果て</span></td><td><span>はて</span></td><td><span>边际，尽头。</span></td><td>&nbsp;</td></tr><tr><td><span>果てしない</span></td><td><span>はてしない</span></td><td><span>无边无际的，无限的，无尽的。</span></td><td>&nbsp;</td></tr><tr><td><span>奇跡</span></td><td><span>きせき</span></td><td><span>奇迹。</span></td><td>&nbsp;</td></tr><tr><td><span>宇宙</span></td><td><span>そら</span></td><td><span>宇宙，太空。</span></td><td><span>特殊读法。</span></td></tr><tr><td><span>御胸</span></td><td><span>みむね</span></td><td><span>宗教意味的神怀。</span></td><td><span>特殊读法。</span></td></tr><tr><td><span>抱く</span></td><td><span>いだく</span></td><td><span>抱抽象的东西。</span></td><td><span>抱 </span><sup><span>だ</span></sup><span> く是抱具体的东西。</span></td></tr><tr><td><span>触れる</span></td><td><span>触れる</span></td><td><span>轻触后断开，瞬间地接触。</span></td><td><span>触 </span><sup><span>さわ</span></sup><span> る是有持续时间的确认性接触。</span></td></tr><tr><td><span>そっと</span></td><td><span>そっと</span></td><td><span>静静地，不动声色地。</span></td><td>&nbsp;</td></tr><tr><td><span>起こり</span></td><td><span>おこり</span></td><td><span>起源。</span></td><td>&nbsp;</td></tr><tr><td><span>静寂</span></td><td><span>しじま</span></td><td><span>寂静。</span></td><td>&nbsp;</td></tr><tr><td><span>澄ます</span></td><td><span>すます</span></td><td><span>使清。洗耳澄心，集中精神。</span></td><td>&nbsp;</td></tr><tr><td><span>抱きしめる</span></td><td><span>だきしめる</span></td><td><span>抱紧。</span></td><td>&nbsp;</td></tr></tbody></table></figure><br><p><strong><span>Every day I listen to my heart</span></strong></p><blockquote><p><span>每一天我聆听自己的内心</span></p></blockquote><p><strong><span>ひとりじゃない</span></strong></p><blockquote><p><span>都感觉自己并非孑然一身</span></p></blockquote><p><strong><span>深い胸の奥で</span></strong></p><blockquote><p><span>在心灵的深处</span></p></blockquote><p><strong><span>つながってる</span></strong></p><blockquote><p><span>我们彼此牵系</span></p></blockquote><p><strong><span>果てしない時を越えて</span></strong></p><blockquote><p><span>穿越无限的时间</span></p></blockquote><p><strong><span>輝く星が</span></strong></p><blockquote><p><span>闪耀的群星</span></p></blockquote><p><strong><span>出会えた奇跡</span></strong></p><blockquote><p><span>相遇的奇迹</span></p></blockquote><p><strong><span>教えてくれる</span></strong></p><blockquote><p><span>将教会我们</span></p></blockquote><p><strong><span>Every day I listen to my heart</span></strong></p><blockquote><p><span>每一天我聆听自己的内心</span></p></blockquote><p><strong><span>ひとりじゃない</span></strong></p><blockquote><p><span>都感觉自己并非孑然一身</span></p></blockquote><p><strong><span>この宇宙の御胸に</span></strong></p><blockquote><p><span>在这茫茫宇宙的怀中</span></p></blockquote><p><strong><span>抱かれて</span></strong></p><blockquote><p><span>我们被怀抱着</span></p></blockquote><p><strong><span>私のこの両手で</span></strong></p><blockquote><p><span>可是就用我的双手</span></p></blockquote><p><strong><span>何ができるの?</span></strong></p><blockquote><p><span>究竟能做些什么呢</span></p></blockquote><p><strong><span>痛みに触れさせて</span></strong></p><blockquote><p><span>请让我感触痛楚</span></p></blockquote><p><strong><span>そっと目を閉じて</span></strong></p><blockquote><p><span>静静地闭上眼睛</span></p></blockquote><p><strong><span>夢を失うよりも</span></strong></p><blockquote><p><span>比起失去梦想</span></p></blockquote><p><strong><span>悲しいことは</span></strong></p><blockquote><p><span>更可悲的事是</span></p></blockquote><p><strong><span>自分を信じてあげられないこと</span></strong></p><blockquote><p><span>无法相信自己</span></p></blockquote><p><strong><span>愛を学ぶために</span></strong></p><blockquote><p><span>为了学会去爱</span></p></blockquote><p><strong><span>孤独があるなら</span></strong></p><blockquote><p><span>如有孤独的话</span></p></blockquote><p><strong><span>意味のないことなど</span></strong></p><blockquote><p><span>无意义之事等</span></p></blockquote><p><strong><span>起こりはしない</span></strong></p><blockquote><p><span>不再生起</span></p></blockquote><p><strong><span>心の静寂に</span></strong></p><blockquote><p><span>心之静寂</span></p></blockquote><p><strong><span>耳を澄まして</span></strong></p><blockquote><p><span>侧耳倾听</span></p></blockquote><p><strong><span>私を呼んだなら</span></strong></p><blockquote><p><span>如有召唤</span></p></blockquote><p><strong><span>どこへでも行くわ</span></strong></p><blockquote><p><span>无问东西</span></p></blockquote><p><strong><span>あなたのその涙</span></strong></p><blockquote><p><span>汝之彼泪</span></p></blockquote><p><strong><span>私のものに</span></strong></p><blockquote><p><span>幻化为吾</span></p></blockquote><p><strong><span>今は自分を</span></strong></p><blockquote><p><span>当下吾即</span></p></blockquote><p><strong><span>抱きしめて</span></strong></p><blockquote><p><span>紧抱自己</span></p></blockquote><p><strong><span>命のぬくもり</span></strong></p><blockquote><p><span>感受</span></p></blockquote><p><strong><span>感じて</span></strong></p><blockquote><p><span>生命的温存</span></p></blockquote><p><strong><span>私たちは誰も</span></strong></p><blockquote><p><span>我们谁都不是</span></p></blockquote><p><strong><span>ひとりじゃない</span></strong></p><blockquote><p><span>孑然一身</span></p></blockquote><p><strong><span>ありのままでずっと</span></strong></p><blockquote><p><span>与生俱来地</span></p></blockquote><p><strong><span>愛されてる</span></strong></p><blockquote><p><span>一直被爱着</span></p></blockquote><p><strong><span>望むように生きて</span></strong></p><blockquote><p><span>请活成希望的样子</span></p></blockquote><p><strong><span>輝く未来を</span></strong></p><blockquote><p><span>我将永远为你</span></p></blockquote><p><strong><span>いつまでも歌うわ</span></strong></p><blockquote><p><span>歌颂闪耀的未来</span></p></blockquote><p><strong><span>あなたのために</span></strong></p><p>&nbsp;</p></div></div>
+<div id='write'  class=''><h2 id='jupiter'><span>Jupiter</span></h2><p><span>木星</span></p><h4 id='平-ひら-原-はら-綾-あや-香-か'><span>平 </span><sup style="font-weight:normal;"><span>ひら</span></sup><span> 原 </span><sup style="font-weight:normal;"><span>はら</span></sup><span> 綾 </span><sup style="font-weight:normal;"><span>あや</span></sup><span> 香 </span><sup style="font-weight:normal;"><span>か</span></sup></h4><p><span>平原 绫香</span></p><br><audio id="audios" controls="" height="100" width="100%" preload="auto" src="https://link.jscdn.cn/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBbGd2Z3FscVY2Zm5nMUtkc1ZyN3pLR3lJVmZiP2U9QXY2OWZM.mp3"></audio><br><br><figure><table><thead><tr><th><span>单词</span></th><th><span>发音</span></th><th><span>含义</span></th><th><span>注意</span></th></tr></thead><tbody><tr><td><span>果て</span></td><td><span>はて</span></td><td><span>边际，尽头。</span></td><td>&nbsp;</td></tr><tr><td><span>果てしない</span></td><td><span>はてしない</span></td><td><span>无边无际的，无限的，无尽的。</span></td><td>&nbsp;</td></tr><tr><td><span>奇跡</span></td><td><span>きせき</span></td><td><span>奇迹。</span></td><td>&nbsp;</td></tr><tr><td><span>宇宙</span></td><td><span>そら</span></td><td><span>宇宙，太空。</span></td><td><span>特殊读法。</span></td></tr><tr><td><span>御胸</span></td><td><span>みむね</span></td><td><span>宗教意味的神怀。</span></td><td><span>特殊读法。</span></td></tr><tr><td><span>抱く</span></td><td><span>いだく</span></td><td><span>抱抽象的东西。</span></td><td><span>抱 </span><sup><span>だ</span></sup><span> く是抱具体的东西。</span></td></tr><tr><td><span>触れる</span></td><td><span>触れる</span></td><td><span>轻触后断开，瞬间地接触。</span></td><td><span>触 </span><sup><span>さわ</span></sup><span> る是有持续时间的确认性接触。</span></td></tr><tr><td><span>そっと</span></td><td><span>そっと</span></td><td><span>静静地，不动声色地。</span></td><td>&nbsp;</td></tr><tr><td><span>起こり</span></td><td><span>おこり</span></td><td><span>起源。</span></td><td>&nbsp;</td></tr><tr><td><span>静寂</span></td><td><span>しじま</span></td><td><span>寂静。</span></td><td>&nbsp;</td></tr><tr><td><span>澄ます</span></td><td><span>すます</span></td><td><span>使清。洗耳澄心，集中精神。</span></td><td>&nbsp;</td></tr><tr><td><span>抱きしめる</span></td><td><span>だきしめる</span></td><td><span>抱紧。</span></td><td>&nbsp;</td></tr></tbody></table></figure><br><p><strong><span>Every day I listen to my heart</span></strong></p><blockquote><p><span>每一天我聆听自己的内心</span></p></blockquote><p><strong><span>ひとりじゃない</span></strong></p><blockquote><p><span>都感觉自己并非孑然一身</span></p></blockquote><p><strong><span>深い胸の奥で</span></strong></p><blockquote><p><span>在心灵的深处</span></p></blockquote><p><strong><span>つながってる</span></strong></p><blockquote><p><span>我们彼此牵系</span></p></blockquote><p><strong><span>果てしない時を越えて</span></strong></p><blockquote><p><span>穿越无限的时间</span></p></blockquote><p><strong><span>輝く星が</span></strong></p><blockquote><p><span>闪耀的群星</span></p></blockquote><p><strong><span>出会えた奇跡</span></strong></p><blockquote><p><span>相遇的奇迹</span></p></blockquote><p><strong><span>教えてくれる</span></strong></p><blockquote><p><span>将教会我们</span></p></blockquote><p><strong><span>Every day I listen to my heart</span></strong></p><blockquote><p><span>每一天我聆听自己的内心</span></p></blockquote><p><strong><span>ひとりじゃない</span></strong></p><blockquote><p><span>都感觉自己并非孑然一身</span></p></blockquote><p><strong><span>この宇宙の御胸に</span></strong></p><blockquote><p><span>在这茫茫宇宙的怀中</span></p></blockquote><p><strong><span>抱かれて</span></strong></p><blockquote><p><span>我们被怀抱着</span></p></blockquote><p><strong><span>私のこの両手で</span></strong></p><blockquote><p><span>可是就用我的双手</span></p></blockquote><p><strong><span>何ができるの?</span></strong></p><blockquote><p><span>究竟能做些什么呢</span></p></blockquote><p><strong><span>痛みに触れさせて</span></strong></p><blockquote><p><span>请让我感触痛楚</span></p></blockquote><p><strong><span>そっと目を閉じて</span></strong></p><blockquote><p><span>静静地闭上眼睛</span></p></blockquote><p><strong><span>夢を失うよりも</span></strong></p><blockquote><p><span>比起失去梦想</span></p></blockquote><p><strong><span>悲しいことは</span></strong></p><blockquote><p><span>更可悲的事是</span></p></blockquote><p><strong><span>自分を信じてあげられないこと</span></strong></p><blockquote><p><span>无法相信自己</span></p></blockquote><p><strong><span>愛を学ぶために</span></strong></p><blockquote><p><span>为了学会去爱</span></p></blockquote><p><strong><span>孤独があるなら</span></strong></p><blockquote><p><span>如有孤独的话</span></p></blockquote><p><strong><span>意味のないことなど</span></strong></p><blockquote><p><span>无意义之事等</span></p></blockquote><p><strong><span>起こりはしない</span></strong></p><blockquote><p><span>不再生起</span></p></blockquote><p><strong><span>心の静寂に</span></strong></p><blockquote><p><span>心之静寂</span></p></blockquote><p><strong><span>耳を澄まして</span></strong></p><blockquote><p><span>侧耳倾听</span></p></blockquote><p><strong><span>私を呼んだなら</span></strong></p><blockquote><p><span>如有召唤</span></p></blockquote><p><strong><span>どこへでも行くわ</span></strong></p><blockquote><p><span>无问东西</span></p></blockquote><p><strong><span>あなたのその涙</span></strong></p><blockquote><p><span>汝之彼泪</span></p></blockquote><p><strong><span>私のものに</span></strong></p><blockquote><p><span>幻化为吾</span></p></blockquote><p><strong><span>今は自分を</span></strong></p><blockquote><p><span>当下吾即</span></p></blockquote><p><strong><span>抱きしめて</span></strong></p><blockquote><p><span>紧抱自己</span></p></blockquote><p><strong><span>命のぬくもり</span></strong></p><blockquote><p><span>感受</span></p></blockquote><p><strong><span>感じて</span></strong></p><blockquote><p><span>生命的温存</span></p></blockquote><p><strong><span>私たちは誰も</span></strong></p><blockquote><p><span>我们谁都不是</span></p></blockquote><p><strong><span>ひとりじゃない</span></strong></p><blockquote><p><span>孑然一身</span></p></blockquote><p><strong><span>ありのままでずっと</span></strong></p><blockquote><p><span>与生俱来地</span></p></blockquote><p><strong><span>愛されてる</span></strong></p><blockquote><p><span>一直被爱着</span></p></blockquote><p><strong><span>望むように生きて</span></strong></p><blockquote><p><span>请活成希望的样子</span></p></blockquote><p><strong><span>輝く未来を</span></strong></p><blockquote><p><span>我将永远为你</span></p></blockquote><p><strong><span>いつまでも歌うわ</span></strong></p><blockquote><p><span>歌颂闪耀的未来</span></p></blockquote><p><strong><span>あなたのために</span></strong></p><p>&nbsp;</p></div></div>
 </body>
 </html>
