@@ -8,7 +8,7 @@
 
 <br>
 
-<audio id="audios" controls="" height="100" width="100%" preload="auto" src="https://link.jscdn.cn/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBbGd2Z3FscVY2Zm5neDZtM1lVM0NXVWhsNUo5P2U9eTJjaWVE.mp3"></audio>
+<audio id="audios" controls="" height="100" width="100%" preload="metadata" src="https://dlink.host/1drv/aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBbGd2Z3FscVY2Zm5oMWNXY2hWbWJFTy1INEhuP2U9N2VpdGFJ.mp3"></audio>
 
 <br><br>
 
